@@ -6,14 +6,49 @@ var eyeY = 165;
 var hi = 'Hi!'
 var name = 'My name is Jack.'
 
+var colorButton;
+var shirtColor;
+var r1;
+var g1;
+var b1;
+
+
+
 function setup() {
   // put setup code here
 
   createCanvas(500, 500);
   background("tan");
+  r1 = (255);
+  g1 = (0);
+  b1 = (0);
+
+  colorButton = createButton("Click to Change My Shirt Color");
+  colorButton.position(260,20);
+  colorButton.mouseReleased(function (){
+    r1 = random(255);
+    g1 = random(255);
+    b1 = random(255);
+});
+
+  r2 = random(255);
+  g2 = random(255);
+  b2 = random(255);
+
+  newButton = createButton("Click to Change the Background");
+  newButton.position(20,460);
+  newButton.mouseReleased(function(){
+    r2 = random(255);
+    g2 = random(255);
+    b2 = random(255);
+    background(r2, g2, b2);
+  });
+
 }
 
+
 function draw() {
+
   // put drawing code here
 fill("white");
 strokeWeight(1);
@@ -21,7 +56,7 @@ strokeWeight(1);
 ellipse(240, 170, 60, 60);
 
 //body
-fill("red");
+fill(r1, g1, b1);
 rect(200, 200, 80, 100);
 
 fill("blue");
@@ -31,15 +66,13 @@ rect(200, 300, legW, legL);
 //right leg
 rect(260, 300, legW, legL);
 
-fill("white");
+fill(r1, g1, b1);
 rect(130, 200, armW, armL);
-fill("red");
 rect(180, 200, 20, 15);
 
 //right arm
-fill("white");
+fill(r1, g1, b1);
 rect(280, 200, armW, armL);
-fill("red");
 rect(280, 200, 20, 15);
 
 noFill();
@@ -58,8 +91,7 @@ rect(220, 90, 40, 40);
 
 //sun
 fill("yellow");
-ellipse(475, 0, 170, 170);
-
+ellipse(0, 0, 170, 170);
 fill("white");
 
 strokeWeight(1);
