@@ -12,7 +12,10 @@ var r1;
 var g1;
 var b1;
 
-
+var sun;
+var moon;
+var showSun = false;
+var showMoon = false;
 
 function setup() {
   // put setup code here
@@ -24,31 +27,31 @@ function setup() {
   b1 = (0);
 
   colorButton = createButton("Click to Change My Shirt Color");
-  colorButton.position(260,20);
+  colorButton.position(20, 430);
   colorButton.mouseReleased(function (){
     r1 = random(255);
     g1 = random(255);
     b1 = random(255);
 });
 
-  r2 = random(255);
-  g2 = random(255);
-  b2 = random(255);
-
-  newButton = createButton("Click to Change the Background");
-  newButton.position(20,460);
-  newButton.mouseReleased(function(){
-    r2 = random(255);
-    g2 = random(255);
-    b2 = random(255);
-    background(r2, g2, b2);
+  sunButton = createButton("Click to Make It Day Time");
+  sunButton.position(280,430);
+  sunButton.mouseReleased(function(){
+    showSun = true;
+    showMoon = false;
   });
 
+  moonButton = createButton("Click to Make It Night Time");
+  moonButton.position(280,460);
+  moonButton.mouseReleased(function(){
+    showMoon = true;
+    showSun = false;
+  });
+  //end setup
 }
 
-
 function draw() {
-
+  background("tan");
   // put drawing code here
 fill("white");
 strokeWeight(1);
@@ -90,8 +93,20 @@ rect(200, 130, 80, 20);
 rect(220, 90, 40, 40);
 
 //sun
-fill("yellow");
-ellipse(0, 0, 170, 170);
+
+if (showSun == true) {
+  fill("yellow");
+  ellipse(0, 0, 170, 170);
+}
+
+
+if (showMoon == true){
+  fill("white");
+  ellipse(460,0,170,170);
+  strokeWeight(3);
+  ellipse(450, 40, 30, 30);
+}
+
 fill("white");
 
 strokeWeight(1);

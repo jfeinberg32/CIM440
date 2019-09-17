@@ -79,9 +79,9 @@ function keyPressed(){
   //console.log("keyCode " + keyCode);
   //conditional: if condition equals true, then do what is inside curly braces
   // == means one side equals the other
-  if(key == "w"){
+  if(key == "g"){
   //what you want to happen
-    faceColor = "white";
+    faceColor = "green";
   }
   if(key == "b"){
   //what you want to happen
