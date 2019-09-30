@@ -35,9 +35,13 @@ function draw() {
   // put drawing code here
   //console.log(mouseX, mouseY);
     background(3, 161, 252);
-    text("Basic Image Gallery", 15, 390);
-    text("Click arrows to shuffle through gallery", 145, 290);
-    text("Click the menu to select an image",0,20);
+    text("Basic Image Gallery", 15, 20);
+    text("Click the arrows", 10, 120);
+    text("to shuffle through", 10, 140);
+    text("the gallery, or", 10, 160);
+    text("click the image's", 10, 180);
+    text("name to jump to", 10, 200);
+    text("the image.", 10, 220);
 
   if (navMenu == 0) {
     fill(175);
