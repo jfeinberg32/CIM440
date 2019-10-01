@@ -77,6 +77,7 @@ function draw() {
   rect(hitX[0],hitY[0],hitSizeX[0],hitSizeX[0]);
   rect(hitX[1],hitY[1],hitSizeX[0],hitSizeX[0]);
 
+  //arrows
   fill(0);
   rect(310,320,20,10);
   rect(220,320,20,10);
