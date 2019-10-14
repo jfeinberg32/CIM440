@@ -1,4 +1,4 @@
-// I do not own the rights to any images used here. Images used for educational purposes;
+// I do not own the rights to any images used here. Images only for educational purposes;
 // iceland : https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwiukeChxfvkAhXyuFkKHae4BJMQjRx6BAgBEAQ&url=https%3A%2F%2Fwww.tourradar.com%2Ft%2F88570&psig=AOvVaw1hANtZ-doYY3Ds38JvaZTx&ust=1570035796751903
 // ocean : https://portal.aodn.org.au/proxy?url=http%3A%2F%2Fgeoserver-static.aodn.org.au%2Fgeoserver%2Fwms%3FLAYERS%3Dbaselayers%253Adefault_bathy%26FORMAT%3Dimage%252Fpng%26SERVICE%3DWMS%26VERSION%3D1.1.1%26REQUEST%3DGetMap%26STYLES%3D%26SRS%3DEPSG%253A4326%26BBOX%3D-180%2C-90%2C0%2C90%26WIDTH%3D256%26HEIGHT%3D256
 // danny devito : https://www.google.com/url?sa=i&source=images&cd=&ved=&url=https%3A%2F%2Fitsalwayssunny.fandom.com%2Fwiki%2FFrank_Reynolds&psig=AOvVaw2I2jUhcTF_dLeEBIzF1A9F&ust=1570035847217524
@@ -17,7 +17,10 @@ var answerText = "";
 
 var imageArray = [];
 
-
+//millis variables
+var startTimer = false;
+var interval = 5000;
+var prevMillis = 0;
 
 function preload(){
   imageArray[0] = loadImage("iceland.jpg");
@@ -72,7 +75,15 @@ function draw() {
   //image
   image(imageArray[currentQuestion], 225 , 165);
   //correct or incorrect
-  text(answerText, 20, 200);
+
+  if (startTimer == true) {
+    text(answerText, 20, 200);
+    if (millis()-prevMillis > interval) {
+      prevMillis = millis();
+      startTimer = false
+      console.log("Timer ended");
+    }
+  }
 
   //hides 3,4 during Q1
   if(currentQuestion == 0){
@@ -99,6 +110,8 @@ function draw() {
     }//end else
 
     currentOption = -1;
+    startTimer = true;
+    prevMillis = millis();
 
   }//end if statement
 
