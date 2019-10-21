@@ -1,13 +1,15 @@
 /*
 [ ] = use an array to organize the roll distributions
+      - cant access array limit on mousePressed
 [ ] = does my randomizer give a fair distribution?
+[ ] = aesthetic
 
 */
 
-var currentOption = 1;
 var roll1 = 0;
 var roll2 = 0;
 var total;
+//var totalArray = [];
 var total1 = 0;
 var total2 = 0;
 var total3 = 0;
@@ -23,21 +25,21 @@ function setup() {
   createCanvas(800,500);
 
   totalButton = createButton("Click to toggle Total");
-  totalButton.position(50,100);
+  totalButton.position(25,20);
   totalButton.mousePressed(function(){
     showTotal = !showTotal;
   });
 
-  rslider = createSlider(0,255,78);
-  rslider.position(575,50);
+  rslider = createSlider(0,255,255);
+  rslider.position(60,400);
   rslider.style('width','150px')
 
-  gslider = createSlider(0,255,174);
-  gslider.position(575,75);
+  gslider = createSlider(0,255,255);
+  gslider.position(60,425);
   gslider.style('width','150px')
 
-  bslider = createSlider(0,255,242);
-  bslider.position(575,100);
+  bslider = createSlider(0,255,255);
+  bslider.position(60,450);
   bslider.style('width','150px')
 
 }//end setup
@@ -45,128 +47,135 @@ function setup() {
 function draw() {
   textFont("Power Green");
   // put drawing code here
+
   rval = rslider.value();
   gval = gslider.value();
   bval = bslider.value();
-  background(rval, gval, bval);
+  background(78,174,242);
   textSize(25);
-  text("Change background color here:",460,45);
+  text("Change dice color here:",5,385);
 
   textSize(15);
-  text("r Value:", 515, 65);
-  text("g Value:", 515, 90);
-  text("b Value:", 515, 115);
+  text("r Value:", 10, 415);
+  text("g Value:", 10, 440);
+  text("b Value:", 10, 465);
 
   textSize(30);
-  text("Roll Distributions: ",550,200);
-  text("1 = " + total1, 650, 230);
-  text("2 = " + total2, 650, 260);
-  text("3 = " + total3, 650, 290);
-  text("4 = " + total4, 650, 320);
-  text("5 = " + total5, 650, 350);
-  text("6 = " + total6, 650, 380);
+  text("Roll Distributions: ",15,130);
+  text("1 = " + total1, 30, 160);
+  text("2 = " + total2, 30, 190);
+  text("3 = " + total3, 30, 220);
+  text("4 = " + total4, 30, 250);
+  text("5 = " + total5, 30, 280);
+  text("6 = " + total6, 30, 310);
 
-if (currentOption == 0){
-  textSize(70);
-  text("Dice Game", 225, 100);
-
-  } else {
-   fill(255);
-   rect(175, 250, 200, 200);
-   rect(425, 250, 200, 200);
-   rect(350, 100, 100, 100);
+   fill(rval,gval,bval);
+   //dice
+   rect(300, 250, 200, 200);
+   rect(550, 250, 200, 200);
    fill(0);
-   textSize(45);
-   text("Click to roll dice", 100, 70);
-    }
 
   if(roll1 == 1){
     fill(0);
-    ellipse(275, 350, 20, 20);
+    ellipse(400, 350, 20, 20);
   } else if (roll1 == 2) {
     fill(0);
-    ellipse(200,275,20,20);
-    ellipse(350,425,20,20);
+    ellipse(325,275,20,20);
+    ellipse(475,425,20,20);
   } else if (roll1 == 3) {
     fill(0);
-    ellipse(200,275,20,20);
-    ellipse(350,425,20,20);
-    ellipse(275,350,20,20);
+    ellipse(325,275,20,20);
+    ellipse(475,425,20,20);
+    ellipse(400,350,20,20);
   } else if (roll1 == 4) {
     fill(0);
-    ellipse(200,275,20,20);
-    ellipse(350,425,20,20);
-    ellipse(200,425,20,20);
-    ellipse(350,275,20,20);
+    ellipse(325,275,20,20);
+    ellipse(475,425,20,20);
+    ellipse(325,425,20,20);
+    ellipse(475,275,20,20);
   } else if (roll1 == 5) {
     fill(0);
-    ellipse(200,275,20,20);
-    ellipse(350,425,20,20);
-    ellipse(200,425,20,20);
-    ellipse(350,275,20,20);
-    ellipse(275,350,20,20);
+    ellipse(325,275,20,20);
+    ellipse(475,425,20,20);
+    ellipse(325,425,20,20);
+    ellipse(475,275,20,20);
+    ellipse(400,350,20,20);
   } else if (roll1 == 6) {
     fill(0);
-    ellipse(200,275,20,20);
-    ellipse(350,425,20,20);
-    ellipse(200,425,20,20);
-    ellipse(350,275,20,20);
-    ellipse(200,350,20,20);
-    ellipse(350,350,20,20);
+    ellipse(325,275,20,20);
+    ellipse(475,425,20,20);
+    ellipse(325,425,20,20);
+    ellipse(475,275,20,20);
+    ellipse(325,350,20,20);
+    ellipse(475,350,20,20);
   }
 
   if(roll2 == 1){
     fill(0);
-    ellipse(525, 350, 20, 20);
+    ellipse(650, 350, 20, 20);
   } else if (roll2 == 2) {
     fill(0);
-    ellipse(450,275,20,20);
-    ellipse(600,425,20,20);
+    ellipse(575,275,20,20);
+    ellipse(725,425,20,20);
   } else if (roll2 == 3) {
     fill(0);
-    ellipse(450,275,20,20);
-    ellipse(600,425,20,20);
-    ellipse(525,350,20,20);
+    ellipse(575,275,20,20);
+    ellipse(725,425,20,20);
+    ellipse(650,350,20,20);
   } else if (roll2 == 4) {
-    ellipse(450,275,20,20);
-    ellipse(600,425,20,20);
-    ellipse(450,425,20,20);
-    ellipse(600,275,20,20);
+    ellipse(575,275,20,20);
+    ellipse(724,425,20,20);
+    ellipse(575,425,20,20);
+    ellipse(725,275,20,20);
   }else if (roll2 == 5) {
     fill(0);
-    ellipse(450,275,20,20);
-    ellipse(600,425,20,20);
-    ellipse(450,425,20,20);
-    ellipse(600,275,20,20);
-    ellipse(525,350,20,20);
+    ellipse(575,275,20,20);
+    ellipse(725,425,20,20);
+    ellipse(575,425,20,20);
+    ellipse(725,275,20,20);
+    ellipse(650,350,20,20);
   } else if (roll2 == 6) {
-    ellipse(450,275,20,20);
-    ellipse(600,425,20,20);
-    ellipse(450,425,20,20);
-    ellipse(600,275,20,20);
-    ellipse(450,350,20,20);
-    ellipse(600,350,20,20);
+    ellipse(575,275,20,20);
+    ellipse(725,425,20,20);
+    ellipse(575,425,20,20);
+    ellipse(725,275,20,20);
+    ellipse(575,350,20,20);
+    ellipse(725,350,20,20);
   }
 
-if (showTotal == true) {
-  total = roll1 + roll2;
-  textSize(30);
-  text("The total is _" + total + "_", 25,150);
-}
-
-  if (mouseX > 350 && mouseX < 450 && mouseY > 100 && mouseY < 200) {
-    fill(244, 115, 33);
-    rect(325, 98, 164, 104);
+  fill(255);
+  rect(20,50,210,40);
+  if (showTotal == true) {
+    total = roll1 + roll2;
     fill(0);
+    textSize(30);
+    text("The total is _" + total + "_", 25,80);
+
+    text(roll1, 390, 475);
+    text(roll2, 650, 475);
+  }
+
+
+  //roll button
+  fill(255);
+  rect(400, 100, 250, 100);
+  fill(0);
+  textSize(55);
+  text("Roll!",485,170);
+  if (mouseX > 400 && mouseX < 650 && mouseY > 100 && mouseY < 200) {
+    rect(399,99,252,102);
+    fill(255);
     textSize(60);
-    text("Roll!", 345, 170);
+    text("Roll!",485,170);
+    fill(0);
   }
 }//end draw
 
 function mousePressed(){
-  if (mouseX > 350 && mouseX < 450 && mouseY > 100 && mouseY < 200) {
+  if (mouseX > 400 && mouseX < 650 && mouseY > 100 && mouseY < 200) {
     roll1 = int(random(1,7));
     roll2 = int(random(1,7));
+
     if (roll1 == 1) {
       total1++;
     } else if (roll1 == 2) {
