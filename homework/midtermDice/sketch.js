@@ -1,10 +1,3 @@
-/*
-[ ] = use an array to organize the roll distributions
-      - cant access array limit on mousePressed
-[ ] = does my randomizer give a fair distribution?
-[ ] = aesthetic
-
-*/
 
 var roll1 = 0;
 var roll2 = 0;
@@ -31,15 +24,15 @@ function setup() {
   });
 
   rslider = createSlider(0,255,255);
-  rslider.position(60,400);
+  rslider.position(100,400);
   rslider.style('width','150px')
 
   gslider = createSlider(0,255,255);
-  gslider.position(60,425);
+  gslider.position(100,425);
   gslider.style('width','150px')
 
   bslider = createSlider(0,255,255);
-  bslider.position(60,450);
+  bslider.position(100,450);
   bslider.style('width','150px')
 
 }//end setup
@@ -55,10 +48,13 @@ function draw() {
   textSize(25);
   text("Change dice color here:",5,385);
 
-  textSize(15);
-  text("r Value:", 10, 415);
-  text("g Value:", 10, 440);
-  text("b Value:", 10, 465);
+  textSize(60);
+  text("Dice Game", 425, 65);
+
+  textSize(20);
+  text("r Value:", 25, 415);
+  text("g Value:", 25, 440);
+  text("b Value:", 25, 465);
 
   textSize(30);
   text("Roll Distributions: ",15,130);
@@ -155,7 +151,6 @@ function draw() {
     text(roll2, 650, 475);
   }
 
-
   //roll button
   fill(255);
   rect(400, 100, 250, 100);
@@ -204,5 +199,5 @@ function mousePressed(){
       total6++;
     }
 
-  }
+   }
 }
