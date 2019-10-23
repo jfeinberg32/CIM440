@@ -2,7 +2,6 @@
 var roll1 = 0;
 var roll2 = 0;
 var total;
-//var totalArray = [];
 var total1 = 0;
 var total2 = 0;
 var total3 = 0;
@@ -164,6 +163,13 @@ function draw() {
     text("Roll!",485,170);
     fill(0);
   }
+
+  if (roll1 == 1 && roll2 == 1) {
+    for (var i = 0; i < 10; i++) {
+      textSize(15);
+      text("Snake Eyes", random(width),random(height))
+    }
+  }
 }//end draw
 
 function mousePressed(){
@@ -200,4 +206,6 @@ function mousePressed(){
     }
 
    }
+
+
 }
