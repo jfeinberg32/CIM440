@@ -57,6 +57,8 @@ function draw() {
 
   textSize(30);
   text("Roll Distributions: ",15,130);
+  //rolls(1, 1, 30, 160);
+
   text("1 = " + total1, 30, 160);
   text("2 = " + total2, 30, 190);
   text("3 = " + total3, 30, 220);
@@ -64,15 +66,14 @@ function draw() {
   text("5 = " + total5, 30, 280);
   text("6 = " + total6, 30, 310);
 
-   fill(rval,gval,bval);
    //dice
-   rect(300, 250, 200, 200);
-   rect(550, 250, 200, 200);
+   diceBox(300,250,200,200);
+   diceBox(550,250,200,200);
    fill(0);
 
   if(roll1 == 1){
     fill(0);
-    ellipse(400, 350, 20, 20);
+    ellipse(400, 350, 20, 20);\
   } else if (roll1 == 2) {
     fill(0);
     ellipse(325,275,20,20);
@@ -208,6 +209,11 @@ function mousePressed(){
    }
 }
 
-function distributions() {
-  
+function diceBox (xloc,yloc,boxSize) {
+  fill(rval,gval,bval);
+  rect(xloc,yloc,boxSize,boxSize);
 }
+
+// function rolls (num1,num,xloc1,yloc1) {
+//   text(num1,"total" + num,xloc1,yloc1);
+// }
