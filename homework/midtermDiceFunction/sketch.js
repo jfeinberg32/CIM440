@@ -14,24 +14,34 @@ var rslider, bslider, gslider;
 
 function setup() {
   // put setup code here
-  createCanvas(800,500);
+  var cnv = createCanvas(800,500);
+  cnv.id("mycanvas");
+
+  var container0 = createDiv();
+  container0.id("container0");
+
+  select("#container0").html("<h1>Basic Dice Simulator</h1>");
+  select("#container0").style("width","800px");
+  select("#container0").style("margin","0 auto");
+
+  cnv.parent("container0");
 
   totalButton = createButton("Click to toggle Total");
-  totalButton.position(25,20);
+  totalButton.position(275,100);
   totalButton.mousePressed(function(){
     showTotal = !showTotal;
   });
 
   rslider = createSlider(0,255,255);
-  rslider.position(100,400);
+  rslider.position(330,475);
   rslider.style('width','150px')
 
   gslider = createSlider(0,255,255);
-  gslider.position(100,425);
+  gslider.position(330,500);
   gslider.style('width','150px')
 
   bslider = createSlider(0,255,255);
-  bslider.position(100,450);
+  bslider.position(330,525);
   bslider.style('width','150px')
 
 }//end setup
@@ -73,7 +83,7 @@ function draw() {
 
   if(roll1 == 1){
     fill(0);
-    ellipse(400, 350, 20, 20);\
+    ellipse(400, 350, 20, 20);
   } else if (roll1 == 2) {
     fill(0);
     ellipse(325,275,20,20);
@@ -213,7 +223,3 @@ function diceBox (xloc,yloc,boxSize) {
   fill(rval,gval,bval);
   rect(xloc,yloc,boxSize,boxSize);
 }
-
-// function rolls (num1,num,xloc1,yloc1) {
-//   text(num1,"total" + num,xloc1,yloc1);
-// }
