@@ -27,7 +27,7 @@ var mario;
 var characterX = 100;
 var platform;
 var input, inputButton;
-var marioimg, enemyimg;
+var marioimg, enemyimg, backgroundsky;
 var enemyX;
 
 var GRAVITY = 1;
@@ -37,6 +37,7 @@ var leftSpeed = -5;
 
 function preload() {
   marioimg = loadImage("images/mario.png");
+  backgroundsky = loadImage("images/backgroundsky.jpg")
 
 }
 
@@ -67,12 +68,12 @@ function setup() {
 
 
   platform = createSprite(500, 400, 1000, 100);
-  platform.shapeColor = "tan";
+  platform.shapeColor = "green";
 
 }
 
 function draw() {
-  background(175);
+  background(backgroundsky);
 
   playButton.onPress = function() {
     playButton.strokeWeight = 4;
