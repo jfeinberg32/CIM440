@@ -1,9 +1,23 @@
-// [] = fix background image to char
-// [] = add char animations
-// [] = create obstacles
-// [] = move the background
-// [] = create enemies
-// [] = fix move controls
+// **if possible**
+// ----------------------------------------------------------------------------
+
+// [] = try to create online scoreboard with google sheets
+// [] = create parallax background
+
+
+// **MAIN**
+// ----------------------------------------------------------------------------
+
+// [] = create obstacles/enemies
+// [] = move the background around character
+// [] = only be able to jump once at a time
+// [] = create score (probably using millis, or 1 point for each enemy, or both)
+
+// move background with arrow keys !!
+
+
+
+
 
 
 var gameState = false;
@@ -13,7 +27,8 @@ var mario;
 var characterX = 100;
 var platform;
 var input, inputButton;
-var marioimg;
+var marioimg, enemyimg;
+var enemyX;
 
 var GRAVITY = 1;
 var JUMP = 12;
@@ -34,6 +49,7 @@ function setup() {
   playButton.resize(200, 100);
   playButton.text = "Click to Play";
   playButton.textSize = 30;
+  //add playButton.onHover function
 
   //Setting Button
   settingButton = new Clickable();
@@ -47,6 +63,9 @@ function setup() {
   mario.limitSpeed(2);
 
 
+  //enemy = createSprite(enemyX, 300, 25, 55);
+
+
   platform = createSprite(500, 400, 1000, 100);
   platform.shapeColor = "tan";
 
@@ -55,13 +74,18 @@ function setup() {
 function draw() {
   background(175);
 
-  //start game
   playButton.onPress = function() {
+    playButton.strokeWeight = 4;
+    playButton.textSize = 33;
+  }
+
+  //start game
+  playButton.onRelease = function() {
     gameState = true;
   }
 
   //go to settings
-  settingButton.onPress = function() {
+  settingButton.onRelease = function() {
     settingState = true;
   }
 
@@ -75,11 +99,7 @@ function draw() {
     settingButton.draw();
 
   } else if (gameState == true && settingState == false) {
-    // entire game
-
-    //base
-
-
+    // ** ENTIRE GAME HERE **
 
     //instructions
     fill(0);
@@ -97,14 +117,20 @@ function draw() {
 
     if (keyDown(39)) {
       mario.velocity.x = rightSpeed;
-    }
-    if (keyDown(37)) {
+    } else if (keyDown(37)) {
       mario.velocity.x = leftSpeed;
+    } else {
+      mario.velocity.x = 0;
     }
+
     //jump
-    if (keyWentDown('x')) {
-      mario.velocity.y = -JUMP;
-    }
+
+      if (keyWentDown('x')) {
+        mario.velocity.y = -JUMP;
+      }
+
+
+
     //fire
 
 

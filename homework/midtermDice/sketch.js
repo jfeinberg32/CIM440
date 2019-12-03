@@ -48,7 +48,7 @@ function draw() {
   text("Change dice color here:",5,385);
 
   textSize(60);
-  text("Dice Game", 425, 65);
+  text("Dice Tray the Gang", 425, 65);
 
   textSize(20);
   text("r Value:", 25, 415);
@@ -209,5 +209,5 @@ function mousePressed(){
 }
 
 function distributions() {
-  
+
 }
