@@ -164,11 +164,9 @@ function draw() {
     fill(0);
   }
 
+
   if (roll1 == 1 && roll2 == 1) {
-    for (var i = 0; i < 10; i++) {
-      textSize(15);
-      text("Snake Eyes", random(width),random(height))
-    }
+    snakeEyes();
   }
 }//end draw
 
@@ -208,6 +206,9 @@ function mousePressed(){
    }
 }
 
-function distributions() {
-
+function snakeEyes() {
+  for (var i = 0; i < 10; i++) {
+    textSize(15);
+    text("Snake Eyes", random(width),random(height))
+  }
 }
